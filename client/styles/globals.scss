@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'fonts';
+
+@layer components {
+	@import 'components';
+}
+
+@layer base {
+	@import 'base';
+}
+
+@layer utilities {
+	/* Chrome, Safari and Opera */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	.no-scrollbar {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+}
+
+main {
+	&.login,
+	&.register {
+		@apply bg-primary absolute inset-0 flex justify-center items-center;
+	}
+}

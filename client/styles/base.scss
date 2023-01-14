@@ -1,0 +1,19 @@
+* {
+	@apply text-black text-lg font-avenirLT;
+}
+
+h1 {
+	@apply font-bold font-cambon text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl;
+}
+
+h2 {
+	@apply font-cambon font-bold md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl;
+}
+
+h3 {
+	@apply font-cambon font-bold text-xl;
+}
+
+p {
+	@apply font-avenirLT text-sm md:text-base xl:text-lg;
+}

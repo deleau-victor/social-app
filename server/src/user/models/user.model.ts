@@ -1,7 +1,7 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Article } from 'src/article/models/article.model';
 import { Node } from 'src/pagination/models/node.model';
-import { Column, Entity, JoinColumn, OneToMany, RelationId } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany } from 'typeorm';
 import { Comment } from '../../comment/models/comment.model';
 
 @Entity()

@@ -7,7 +7,6 @@ import { ArticleMutationsResolver } from './resolvers/article.mutations.resolver
 import { ArticleFieldsResolver } from './resolvers/article.fields.resolver';
 import { UsersModule } from 'src/user/user.module';
 import { Comment } from 'src/comment/models/comment.model';
-import { CommentModule } from 'src/comment/comment.module';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Article, Comment]), UsersModule],

@@ -23,4 +23,6 @@ export class createUserInput {
 export class createUserOutput {
   @Field(() => User)
   user: User;
+  @Field(() => String)
+  accessToken: string;
 }

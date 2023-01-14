@@ -2,7 +2,7 @@ import { UseGuards } from '@nestjs/common';
 import { Args, Context, Mutation, Resolver } from '@nestjs/graphql';
 import { AuthService } from '../auth.service';
 import { authLoginOutput } from '../dto/auth-login.dto';
-import { LocalAuthGuard } from '../guards/local-host.guard';
+import { LocalAuthGuard } from '../guards/local-auth.guard';
 
 @Resolver()
 export class AuthMutationsResolver {
