@@ -1,4 +1,4 @@
-export interface IRegister {
+export interface IRegisterInput {
 	email: string
 	password: string
 	confirmPassword: string
@@ -6,7 +6,7 @@ export interface IRegister {
 	lastName: string
 }
 
-export interface IRegisterResponse {
+export interface IRegisterOutput {
 	createUser: {
 		user: {
 			id: string

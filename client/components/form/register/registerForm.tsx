@@ -4,11 +4,12 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import RegisterSchema from './schema'
-import { toastError, toastInfo } from '../../ui/toast'
-import { IRegister, IRegisterResponse } from './register.interface'
-import { FetchResult, SingleExecutionResult, useMutation } from '@apollo/client'
+import { toastError } from '../../ui/toast'
+import { IRegisterInput, IRegisterOutput } from './register.interface'
+import { SingleExecutionResult, useMutation } from '@apollo/client'
 import { ADD_USER } from './addUser.mutation'
 import { useRouter } from 'next/router'
+import { asyncLocalStorage } from '../../../utils/asyncLocalStorage'
 
 const RegisterForm: FC = () => {
 	const router = useRouter()
@@ -18,12 +19,12 @@ const RegisterForm: FC = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<IRegister>({
+	} = useForm<IRegisterInput>({
 		resolver: yupResolver(RegisterSchema),
 	})
 
-	const onSubmit = async (userInput: IRegister) => {
-		const { data, errors }: SingleExecutionResult<IRegisterResponse> =
+	const onSubmit = async (userInput: IRegisterInput) => {
+		const { data, errors }: SingleExecutionResult<IRegisterOutput> =
 			await createUser({
 				variables: {
 					input: {
@@ -35,8 +36,7 @@ const RegisterForm: FC = () => {
 				},
 			})
 		if (data) {
-			localStorage.setItem('token', data.createUser.accessToken)
-			toastInfo('Inscription réussie', 'success')
+			await asyncLocalStorage.setItem('token', data.createUser.accessToken)
 			router.push('/')
 		}
 		if (errors) {
